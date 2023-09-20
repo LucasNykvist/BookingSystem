@@ -1,8 +1,11 @@
 import React from 'react'
+import Navbar from '../components/Navbar'
 
 const Homeview: React.FC = () => {
     return (
-        <div>Homeview</div>
+        <>
+            <Navbar></Navbar>
+        </>
     )
 }
 
