@@ -1,11 +1,12 @@
 import React from 'react';
 import BookerLogo from '../assets/images/BookerLogo.png';
+import { NavLink } from 'react-router-dom'
 
 const Navbar = () => {
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="container-fluid">
-                <a className="navbar-brand" href="#"><img src={BookerLogo} alt="" /></a>
+                <NavLink className="navbar-brand" to='/'>BS | BOOKING SYSTEM</NavLink>
 
 
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,7 +15,27 @@ const Navbar = () => {
 
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div className="navbar-nav">
-                        <a className="nav-link active" aria-current="page" href="#">Home</a>
+                        <NavLink to='/Login' className="link nav-link active" aria-current="page">
+                            <div className="item-1">
+                                <p>Login</p>
+                            </div>
+
+                            <div className="item-2">
+                                <p className='fa-beat'>Login</p>
+                            </div>
+
+                        </NavLink>
+
+                        <NavLink to='/Register' className="link nav-link active" aria-current="page">
+                            <div className="item-1">
+                                <p>Register</p>
+                            </div>
+
+                            <div className="item-2">
+                                <p className='fa-beat'>Register</p>
+                            </div>
+
+                        </NavLink>
                     </div>
                 </div>
             </div>
