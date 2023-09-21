@@ -9,8 +9,8 @@ const RegisterForm = () => {
                 <h2>BS | BOOKING SYSTEM | REGISTER</h2>
 
                 <input className='inputEmail' type="email" placeholder='Enter your Email' />
-                <input className='inputEmail' type="text" placeholder='Enter your Company Name' />
-                <input className='inputEmail' type="tel" placeholder='Enter your Phone Number' />
+                <input className='inputCompany' type="text" placeholder='Enter your Company Name' />
+                <input className='inputPhone' type="tel" placeholder='Enter your Phone Number' />
                 <input className='inputPassword' type="password" placeholder='Enter your Password' />
 
                 <button className='loginButton'>REGISTER</button>
