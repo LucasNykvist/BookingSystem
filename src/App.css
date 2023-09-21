@@ -68,12 +68,21 @@ nav .container-fluid .navbar-nav .nav-link:hover .item-2 {
   height: 40px;
   border: none;
   border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.526);
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
 }
 .container .loginForm p {
   align-self: center;
   font-weight: bold;
+  font-size: 1.2rem;
+  margin: 0;
 }
 .container .loginForm p .registerLink {
   margin-left: 0.5rem;
+  color: #272343;
+}
+.container .loginForm p .registerLink:hover {
   color: red;
 }/*# sourceMappingURL=App.css.map */

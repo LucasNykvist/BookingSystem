@@ -28,15 +28,25 @@
             height: 40px;
             border: none;
             border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.526);
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
         }
 
         p {
             align-self: center;
             font-weight: bold;
+            font-size: 1.2rem;
+            margin: 0;
 
             .registerLink {
                 margin-left: 0.5rem;
-                color: red;
+                color: #272343;
+
+                &:hover {
+                    color: red;
+                }
             }
         }
 
