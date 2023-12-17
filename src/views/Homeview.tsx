@@ -5,7 +5,7 @@ import NoteForm from "../sections/NoteForm";
 const Homeview: React.FC = () => {
   return (
     <>
-      {/* <Navbar /> */}
+      <Navbar />
       <NoteForm />
     </>
   );
