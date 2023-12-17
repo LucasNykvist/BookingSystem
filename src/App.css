@@ -91,7 +91,7 @@ nav .container-fluid .navbar-nav .nav-link:hover .item-2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 90vh;
+  height: 100vh;
   background-image: url(https://images.pexels.com/photos/688660/pexels-photo-688660.jpeg?cs=srgb&dl=pexels-simon-berger-688660.jpg&fm=jpg);
   background-size: cover;
 }
