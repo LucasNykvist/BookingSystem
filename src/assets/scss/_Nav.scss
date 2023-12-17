@@ -1,0 +1,54 @@
+nav {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.164);
+    backdrop-filter: blur(10px);
+
+    .container-fluid {
+
+        padding: 0rem 3rem;
+
+        .navbar-brand {
+            background-color: #bae8e8;
+            border-radius: 10px;
+            padding: 0.5rem 1rem;
+            font-family: 'Anton';
+            font-size: 2.5rem;
+            color: #272343;
+            transition: 0.3s ease-in-out;
+
+            &:hover {
+                color: #2723437d;
+            }
+        }
+
+        .navbar-nav {
+            gap: 1rem;
+            padding-left: 1rem;
+
+            .link {
+                font-size: 1.5rem;
+                font-weight: bold;
+
+                p {
+                    margin: 0;
+                }
+
+                .item-2 {
+                    display: none;
+                }
+
+            }
+
+            .nav-link:hover {
+                .item-1 {
+                    display: none;
+                }
+
+                .item-2 {
+                    display: block;
+                }
+            }
+        }
+
+
+    }
+}
