@@ -1,14 +1,14 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
-import RegisterForm from '../sections/RegisterForm'
+import React from "react";
+import Navbar from "../components/Navbar";
+import RegisterForm from "../pages/RegisterForm";
 
 const RegisterView = () => {
-    return (
-        <>
-            <Navbar></Navbar>
-            <RegisterForm></RegisterForm>
-        </>
-    )
-}
+  return (
+    <>
+      <Navbar></Navbar>
+      <RegisterForm></RegisterForm>
+    </>
+  );
+};
 
-export default RegisterView
+export default RegisterView;
