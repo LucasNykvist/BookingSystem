@@ -1,11 +1,11 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import NoteForm from "../sections/NoteForm";
+import NoteForm from "../pages/Note/NoteForm";
 
 const Homeview: React.FC = () => {
   return (
     <>
-      {/* <Navbar /> */}
+      <Navbar />
       <NoteForm />
     </>
   );

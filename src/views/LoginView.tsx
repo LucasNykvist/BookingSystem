@@ -1,14 +1,14 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
-import LoginForm from '../sections/LoginForm'
+import React from "react";
+import Navbar from "../components/Navbar";
+import LoginForm from "../pages/LoginForm";
 
 const LoginView = () => {
-    return (
-        <>
-            <Navbar></Navbar>
-            <LoginForm></LoginForm>
-        </>
-    )
-}
+  return (
+    <>
+      <Navbar></Navbar>
+      <LoginForm></LoginForm>
+    </>
+  );
+};
 
-export default LoginView
+export default LoginView;

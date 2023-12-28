@@ -1,5 +1,6 @@
-import { Button, TextField } from "@mui/material";
+import { Alert, Button, Snackbar, TextField } from "@mui/material";
 import React, { useState } from "react";
+import { createNote } from "../../api/note.api";
 
 const NoteForm = () => {
   const defaultInputFields = {
@@ -7,7 +8,9 @@ const NoteForm = () => {
     author: "",
     content: "",
   };
+
   const [inputFields, setInputFields] = useState(defaultInputFields);
+  const [success, setSuccess] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,10 +20,15 @@ const NoteForm = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(inputFields);
-    setInputFields(defaultInputFields);
+    try {
+      await createNote(inputFields);
+      setInputFields(defaultInputFields);
+      setSuccess(true);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -60,6 +68,14 @@ const NoteForm = () => {
           </Button>
         </div>
       </form>
+
+      <Snackbar
+        open={success}
+        autoHideDuration={3000}
+        onClose={() => setSuccess(false)}
+      >
+        <Alert severity="success">Note created successfully!</Alert>
+      </Snackbar>
     </div>
   );
 };
