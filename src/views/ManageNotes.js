@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import { Button, ButtonGroup } from "@mui/material";
 import { deleteNote, getAllNotes } from "../api/note.api";
-import { Await } from "react-router-dom";
 
 const ManageNotes = () => {
   const [notes, setNotes] = useState();
@@ -13,7 +12,7 @@ const ManageNotes = () => {
   };
 
   const removeNote = async (id) => {
-    deleteNote(id);
+    await deleteNote(id);
     getNotes();
   };
 
@@ -24,13 +23,25 @@ const ManageNotes = () => {
   return (
     <>
       <Navbar />
+
+      <div className="title">
+        <h1 style={{ color: "black", fontWeight: "bold" }}>MANAGE NOTES</h1>
+      </div>
+
       <div className="all-notes-container">
         {notes
           ? notes.map((note) => (
               <div className="note-card" key={note.id}>
-                <h1>{note.title}</h1>
-                <p>{note.author}</p>
+                <h1>{note.title.toUpperCase()}</h1>
+                <p>Author: {note.author.toUpperCase()}</p>
                 <p>{note.content}</p>
+                <p>
+                  {" "}
+                  <span style={{ textDecoration: "underline" }}>
+                    Created:
+                  </span>{" "}
+                  {note.createdDate.slice(0, -14)}
+                </p>
 
                 <ButtonGroup className="buttons">
                   {/* <Button variant="outlined" color="secondary" className="edit-btn">
