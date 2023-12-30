@@ -23,8 +23,9 @@ export const getAllNotes = async () => {
 
 export const deleteNote = async (id) => {
   try {
+    console.log(id);
     const response = await axios.delete(`http://localhost:5000/api/note/${id}`);
-    console.log(response.data); // Handle the response data here
+    console.log(response); // Handle the response data here
   } catch (error) {
     console.error(error); // Handle any errors that occur during the request
   }
