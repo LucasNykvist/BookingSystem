@@ -6,9 +6,9 @@ export const createNote = async (note) => {
       "http://localhost:5000/api/note/create",
       note
     );
-    console.log(response.data); // Handle the response data here
+    console.log(response.data);
   } catch (error) {
-    console.error(error); // Handle any errors that occur during the request
+    console.error(error);
   }
 };
 
@@ -17,7 +17,7 @@ export const getAllNotes = async () => {
     const response = await axios.get("http://localhost:5000/api/note");
     return response.data;
   } catch (error) {
-    console.error(error); // Handle any errors that occur during the request
+    console.error(error);
   }
 };
 
@@ -25,8 +25,8 @@ export const deleteNote = async (id) => {
   try {
     console.log(id);
     const response = await axios.delete(`http://localhost:5000/api/note/${id}`);
-    console.log(response); // Handle the response data here
+    console.log(response);
   } catch (error) {
-    console.error(error); // Handle any errors that occur during the request
+    console.error(error);
   }
 };
