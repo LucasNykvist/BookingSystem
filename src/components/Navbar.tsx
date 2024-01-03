@@ -38,6 +38,14 @@ const Navbar = () => {
               >
                 Register
               </Button>
+              <Button
+                href="/login"
+                sx={{ backgroundColor: "black", fontSize: "1rem" }}
+                variant="contained"
+                color="secondary"
+              >
+                LOGIN
+              </Button>
             </ButtonGroup>
           </div>
         </div>
