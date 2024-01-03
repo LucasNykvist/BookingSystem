@@ -1,13 +1,47 @@
 .register-login-container {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 2rem;
-  border-radius: 8px;
-  backdrop-filter: blur(20px);
-  background-color: rgba(255, 255, 255, 0.5);
-  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.25);
-  width: 30%;
-  max-height: 486px;
-  padding: 1rem;
-  text-align: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+
+  form {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    backdrop-filter: blur(20px);
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.25);
+    width: 40%;
+    padding: 1rem;
+    text-align: center;
+
+    h1 {
+      text-align: center;
+      color: rgb(0, 0, 0);
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .input-fields {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      .password-fields {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+      }
+      .field {
+        width: 100%;
+      }
+    }
+
+    .register-button {
+      background-color: black;
+      margin-top: 1rem;
+      width: 20%;
+    }
+  }
 }
