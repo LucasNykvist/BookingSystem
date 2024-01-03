@@ -62,6 +62,11 @@ nav .container-fluid .navbar-nav .link .item-2 {
   flex-direction: column;
   gap: 1rem;
 }
+.register-login-container form .input-fields .error {
+  color: red;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
 .register-login-container form .input-fields .password-fields {
   display: flex;
   flex-direction: row;
