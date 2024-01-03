@@ -16,6 +16,9 @@ nav .container-fluid .navbar-brand {
   color: black;
 }
 nav .container-fluid .navbar-nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
   gap: 1rem;
   padding-left: 1rem;
 }
