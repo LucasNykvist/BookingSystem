@@ -31,7 +31,7 @@ const Navbar = () => {
 
             <ButtonGroup>
               <Button
-                href="/"
+                href="/register"
                 sx={{ backgroundColor: "black", fontSize: "1rem" }}
                 variant="contained"
                 color="secondary"
