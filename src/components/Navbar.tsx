@@ -1,7 +1,6 @@
 import React from "react";
-import BookerLogo from "../assets/images/BookerLogo.png";
-import { NavLink } from "react-router-dom";
-import { Button, ButtonGroup } from "@mui/material";
+import { Button, ButtonGroup, IconButton } from "@mui/material";
+import Person2Icon from "@mui/icons-material/Person2";
 
 const Navbar = () => {
   return (
@@ -30,6 +29,13 @@ const Navbar = () => {
             </ButtonGroup>
 
             <ButtonGroup>
+              <Button
+                sx={{ backgroundColor: "black", fontSize: "1rem" }}
+                variant="contained"
+              >
+                Profile
+              </Button>
+
               <Button
                 href="/register"
                 sx={{ backgroundColor: "black", fontSize: "1rem" }}
