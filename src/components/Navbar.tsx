@@ -28,6 +28,17 @@ const Navbar = () => {
                 Manage Notes
               </Button>
             </ButtonGroup>
+
+            <ButtonGroup>
+              <Button
+                href="/"
+                sx={{ backgroundColor: "black", fontSize: "1rem" }}
+                variant="contained"
+                color="secondary"
+              >
+                Register
+              </Button>
+            </ButtonGroup>
           </div>
         </div>
       </div>
