@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, TextField } from "@mui/material";
 import Navbar from "../../components/Navbar";
+import { registerUser } from "../../api/users.api";
 
 const RegisterForm = () => {
   const defaultUser = {
@@ -11,6 +12,7 @@ const RegisterForm = () => {
 
   const [user, setUser] = useState(defaultUser);
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,7 +22,7 @@ const RegisterForm = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
@@ -41,6 +43,8 @@ const RegisterForm = () => {
         password: user.password,
       };
 
+      await registerUser(userToBeCreated);
+      setSuccess("User created successfully");
       setUser(defaultUser);
     } catch (error) {
       console.log(error);
@@ -84,6 +88,7 @@ const RegisterForm = () => {
               />
             </div>
 
+            {success && <p className="success">{success.toUpperCase()}</p>}
             {error && <p className="error">{error.toUpperCase()}</p>}
           </div>
 

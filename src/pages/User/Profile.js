@@ -42,7 +42,7 @@ const Profile = () => {
                 }}
                 variant="contained"
               >
-                DELETE
+                DELETE PROFILE
               </Button>
             </Tooltip>
           </div>
