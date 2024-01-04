@@ -203,6 +203,7 @@ nav .container-fluid .navbar-nav .link .item-2 {
   height: 100vh;
 }
 .profile-container .profile-content {
+  width: 680px;
   color: black;
   border-radius: 25px;
   padding: 1rem;
@@ -218,12 +219,17 @@ nav .container-fluid .navbar-nav .link .item-2 {
   align-self: start;
 }
 .profile-container .profile-content .profile-image {
+  align-self: start;
   border-radius: 50%;
   border: 1px solid white;
   width: 100px;
   height: 100px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg);
 }
 .profile-container .profile-content h1 {
+  align-self: start;
   font-weight: bold;
   font-size: 1.5rem;
   margin-top: 1rem;

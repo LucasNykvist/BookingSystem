@@ -7,7 +7,6 @@ const Profile = () => {
       <Navbar />
       <div className="profile-container">
         <div className="profile-content">
-          <p className="profile">PROFILE</p>
           <div className="profile-image"></div>
           <h1>LUCAS@GMAIL.COM</h1>
 
