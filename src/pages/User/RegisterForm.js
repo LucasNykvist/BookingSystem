@@ -36,6 +36,11 @@ const RegisterForm = () => {
         return;
       }
 
+      const userToBeCreated = {
+        email: user.email,
+        password: user.password,
+      };
+
       setUser(defaultUser);
     } catch (error) {
       console.log(error);
