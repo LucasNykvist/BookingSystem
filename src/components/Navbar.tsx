@@ -30,6 +30,7 @@ const Navbar = () => {
 
             <ButtonGroup>
               <Button
+                href="/profile"
                 sx={{ backgroundColor: "black", fontSize: "1rem" }}
                 variant="contained"
               >
