@@ -1,6 +1,5 @@
 import React from "react";
 import { Button, ButtonGroup, IconButton } from "@mui/material";
-import Person2Icon from "@mui/icons-material/Person2";
 
 const Navbar = () => {
   return (
