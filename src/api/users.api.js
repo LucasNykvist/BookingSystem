@@ -14,6 +14,9 @@ export const loginUser = async (user) => {
       "http://localhost:5000/api/users/login",
       user
     );
+
+    localStorage.setItem("token", response.data.token);
+
     return response.data;
   } catch (error) {
     console.error(error);

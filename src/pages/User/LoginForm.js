@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, TextField } from "@mui/material";
 import Navbar from "../../components/Navbar";
+import { loginUser } from "../../api/users.api";
 
 const LoginForm = () => {
   const defaultUser = {
@@ -30,6 +31,7 @@ const LoginForm = () => {
         return;
       }
 
+      loginUser(user);
       setUser(defaultUser);
     } catch (error) {
       console.log(error);
