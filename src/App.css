@@ -13,6 +13,10 @@ nav .container-fluid .navbar-brand {
   font-family: "Anton";
   font-size: 2.5rem;
   color: black;
+  transition: 0.3s ease-in-out;
+}
+nav .container-fluid .navbar-brand:hover {
+  color: rgba(0, 0, 0, 0.782);
 }
 nav .container-fluid .navbar-nav {
   width: 100%;
