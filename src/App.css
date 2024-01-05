@@ -32,6 +32,28 @@ nav .container-fluid .navbar-nav .link .item-2 {
   display: none;
 }
 
+@media (max-width: 1005px) {
+  nav .container-fluid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0rem 1rem;
+  }
+  nav .container-fluid .navbar-brand {
+    font-size: 2rem;
+  }
+  nav .container-fluid .navbar-nav {
+    align-items: center;
+    justify-content: center;
+  }
+  nav .container-fluid .navbar-nav .link {
+    font-size: 1.2rem;
+  }
+  nav .container-fluid .navbar-nav .link .item-2 {
+    display: block;
+  }
+}
 .register-login-container {
   height: 100vh;
   display: flex;
@@ -94,9 +116,8 @@ nav .container-fluid .navbar-nav .link .item-2 {
           backdrop-filter: blur(20px);
   background-color: rgba(255, 255, 255, 0.5);
   box-shadow: 0 1px 12px rgba(0, 0, 0, 0.25);
-  display: flex;
-  width: 30%;
-  padding: 3rem;
+  padding: 2rem;
+  width: 400px;
 }
 .note-form-container form h1 {
   text-align: center;
@@ -127,7 +148,7 @@ nav .container-fluid .navbar-nav .link .item-2 {
           backdrop-filter: blur(20px);
   background-color: rgba(255, 255, 255, 0.5);
   box-shadow: 0 1px 12px rgba(0, 0, 0, 0.25);
-  width: 30%;
+  width: 350px;
   max-height: 486px;
   padding: 1rem;
   text-align: center;
@@ -138,7 +159,7 @@ nav .container-fluid .navbar-nav .link .item-2 {
   gap: 1rem;
   margin: 1rem;
   display: flex;
-  width: 100%;
+  justify-content: center;
   padding: 3rem;
 }
 .all-notes-container .note-card {
@@ -147,7 +168,7 @@ nav .container-fluid .navbar-nav .link .item-2 {
           backdrop-filter: blur(20px);
   background-color: rgba(255, 255, 255, 0.5);
   box-shadow: 0 1px 12px rgba(0, 0, 0, 0.25);
-  width: 30%;
+  width: 400px;
   max-height: 486px;
   padding: 1rem;
 }
@@ -160,6 +181,20 @@ nav .container-fluid .navbar-nav .link .item-2 {
   font-weight: 600;
 }
 
+@media screen and (max-width: 550px) {
+  .all-notes-container {
+    padding: 0;
+  }
+  .all-notes-container .note-card {
+    width: 100%;
+  }
+  .title {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    width: 94%;
+  }
+}
 .container-fluid-not {
   height: 100vh;
   display: flex;
