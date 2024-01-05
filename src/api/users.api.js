@@ -15,7 +15,7 @@ export const loginUser = async (user) => {
       user
     );
 
-    localStorage.setItem("token", response.data);
+    localStorage.setItem("token", response.data.token);
 
     return response.data;
   } catch (error) {
