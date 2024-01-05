@@ -27,71 +27,70 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
         <div className="navbar-brand">TDL | NOTE APPLICATION</div>
-        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div className="navbar-nav">
-            <ButtonGroup>
+
+        <div className="navbar-nav">
+          <ButtonGroup>
+            <Button
+              href="/"
+              sx={{ backgroundColor: "black", fontSize: "1rem" }}
+              variant="contained"
+              color="secondary"
+            >
+              Create Note
+            </Button>
+            <Button
+              href="/notes"
+              sx={{ backgroundColor: "black", fontSize: "1rem" }}
+              variant="contained"
+              color="secondary"
+            >
+              Manage Notes
+            </Button>
+          </ButtonGroup>
+
+          <ButtonGroup>
+            {loggedInUser && (
               <Button
-                href="/"
+                href="/profile"
+                sx={{ backgroundColor: "black", fontSize: "1rem" }}
+                variant="contained"
+              >
+                Profile
+              </Button>
+            )}
+
+            {loggedInUser && (
+              <Button
+                onClick={logoutUser}
+                sx={{ backgroundColor: "black", fontSize: "1rem" }}
+                variant="contained"
+              >
+                Logout
+              </Button>
+            )}
+
+            {!loggedInUser && (
+              <Button
+                href="/register"
                 sx={{ backgroundColor: "black", fontSize: "1rem" }}
                 variant="contained"
                 color="secondary"
               >
-                Create Note
+                Register
               </Button>
+            )}
+
+            {!loggedInUser && (
               <Button
-                href="/notes"
+                href="/login"
                 sx={{ backgroundColor: "black", fontSize: "1rem" }}
                 variant="contained"
                 color="secondary"
               >
-                Manage Notes
+                LOGIN
               </Button>
-            </ButtonGroup>
-
-            <ButtonGroup>
-              {loggedInUser && (
-                <Button
-                  href="/profile"
-                  sx={{ backgroundColor: "black", fontSize: "1rem" }}
-                  variant="contained"
-                >
-                  Profile
-                </Button>
-              )}
-
-              {loggedInUser && (
-                <Button
-                  onClick={logoutUser}
-                  sx={{ backgroundColor: "black", fontSize: "1rem" }}
-                  variant="contained"
-                >
-                  Logout
-                </Button>
-              )}
-
-              {!loggedInUser && (
-                <Button
-                  href="/register"
-                  sx={{ backgroundColor: "black", fontSize: "1rem" }}
-                  variant="contained"
-                  color="secondary"
-                >
-                  Register
-                </Button>
-              )}
-
-              {!loggedInUser && (
-                <Button
-                  href="/login"
-                  sx={{ backgroundColor: "black", fontSize: "1rem" }}
-                  variant="contained"
-                  color="secondary"
-                >
-                  LOGIN
-                </Button>
-              )}
-            </ButtonGroup>
-          </div>
+            )}
+          </ButtonGroup>
         </div>
       </div>
     </nav>

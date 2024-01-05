@@ -32,6 +32,28 @@ nav .container-fluid .navbar-nav .link .item-2 {
   display: none;
 }
 
+@media (max-width: 1005px) {
+  nav .container-fluid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0rem 1rem;
+  }
+  nav .container-fluid .navbar-brand {
+    font-size: 2rem;
+  }
+  nav .container-fluid .navbar-nav {
+    align-items: center;
+    justify-content: center;
+  }
+  nav .container-fluid .navbar-nav .link {
+    font-size: 1.2rem;
+  }
+  nav .container-fluid .navbar-nav .link .item-2 {
+    display: block;
+  }
+}
 .register-login-container {
   height: 100vh;
   display: flex;

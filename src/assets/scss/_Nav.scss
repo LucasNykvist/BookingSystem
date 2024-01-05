@@ -35,3 +35,31 @@ nav {
     }
   }
 }
+
+@media (max-width: 1005px) {
+  nav {
+    .container-fluid {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0rem 1rem;
+
+      .navbar-brand {
+        font-size: 2rem;
+      }
+
+      .navbar-nav {
+        align-items: center;
+        justify-content: center;
+        .link {
+          font-size: 1.2rem;
+
+          .item-2 {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
