@@ -1,15 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import { Button, Tooltip } from "@mui/material";
 
 const Profile = () => {
+  const [loggedInUser, setLoggedInUser] = useState("");
+
+  const getLoggedInUser = () => {
+    const user = localStorage.getItem("user");
+    if (user) {
+      setLoggedInUser(user);
+      return user;
+    }
+    return null;
+  };
+
+  useEffect(() => {
+    getLoggedInUser();
+  }, []);
+
   return (
     <>
       <Navbar />
       <div className="profile-container">
         <div className="profile-content">
           <div className="profile-image"></div>
-          <h1>LUCAS@GMAIL.COM</h1>
+          <h1>{loggedInUser.replace(/"/g, "")}</h1>
 
           <div className="profile-information">
             <p className="profile-info-text">Notes Created: 3</p>
