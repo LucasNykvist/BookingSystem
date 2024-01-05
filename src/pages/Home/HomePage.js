@@ -18,15 +18,36 @@ const HomePage = () => {
           style={{
             backdropFilter: "blur(20px)",
             backgroundColor: "rgba(255, 255, 255, 0.5)",
-            width: "fit-content",
+            width: "700px",
             padding: "1rem",
             borderRadius: "1rem",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            flexDirection: "column",
           }}
           className="homepage-content"
         >
-          <h1 style={{ fontWeight: "bold", textAlign: "center" }}>WELCOME!</h1>
-
-          <img src="https://media1.giphy.com/media/hU2wdCVRel4b7qJWfK/giphy.gif?cid=790b7611nem8qm1zg8vy004t04yisjx3ceanlgryx4nnmu3m&ep=v1_gifs_search&rid=giphy.gif&ct=s" />
+          <div
+            style={{
+              fontFamily: "anton",
+              fontSize: "3rem",
+              color: "black",
+              textDecoration: "underline",
+            }}
+            className="navbar-brand"
+          >
+            TDL | NOTE APPLICATION
+          </div>
+          <h1
+            style={{
+              fontWeight: "bold",
+              textAlign: "center",
+              marginTop: "1rem",
+            }}
+          >
+            WELCOME!
+          </h1>
 
           <div className="option-list"></div>
         </div>
