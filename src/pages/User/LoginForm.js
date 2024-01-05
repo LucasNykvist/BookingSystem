@@ -20,7 +20,7 @@ const LoginForm = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
@@ -31,7 +31,7 @@ const LoginForm = () => {
         return;
       }
 
-      loginUser(user);
+      await loginUser(user);
       setUser(defaultUser);
     } catch (error) {
       console.log(error);

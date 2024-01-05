@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, TextField } from "@mui/material";
 import Navbar from "../../components/Navbar";
-import { registerUser } from "../../api/users.api";
+import { loginUser, registerUser } from "../../api/users.api";
 
 const RegisterForm = () => {
   const defaultUser = {
@@ -45,6 +45,7 @@ const RegisterForm = () => {
 
       await registerUser(userToBeCreated);
       setSuccess("User created successfully");
+      await loginUser(userToBeCreated);
       setUser(defaultUser);
     } catch (error) {
       console.log(error);
