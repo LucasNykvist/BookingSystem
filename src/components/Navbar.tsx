@@ -1,7 +1,28 @@
-import React from "react";
-import { Button, ButtonGroup, IconButton } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { Button, ButtonGroup } from "@mui/material";
 
 const Navbar = () => {
+  const [loggedInUser, setLoggedInUser] = useState("");
+
+  const getLoggedInUser = () => {
+    const user = localStorage.getItem("user");
+    if (user) {
+      setLoggedInUser(user);
+      return user;
+    }
+    return null;
+  };
+
+  const logoutUser = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    window.location.href = "/";
+  };
+
+  useEffect(() => {
+    getLoggedInUser();
+  }, []);
+
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
@@ -28,30 +49,47 @@ const Navbar = () => {
             </ButtonGroup>
 
             <ButtonGroup>
-              <Button
-                href="/profile"
-                sx={{ backgroundColor: "black", fontSize: "1rem" }}
-                variant="contained"
-              >
-                Profile
-              </Button>
+              {loggedInUser && (
+                <Button
+                  href="/profile"
+                  sx={{ backgroundColor: "black", fontSize: "1rem" }}
+                  variant="contained"
+                >
+                  Profile
+                </Button>
+              )}
 
-              <Button
-                href="/register"
-                sx={{ backgroundColor: "black", fontSize: "1rem" }}
-                variant="contained"
-                color="secondary"
-              >
-                Register
-              </Button>
-              <Button
-                href="/login"
-                sx={{ backgroundColor: "black", fontSize: "1rem" }}
-                variant="contained"
-                color="secondary"
-              >
-                LOGIN
-              </Button>
+              {loggedInUser && (
+                <Button
+                  onClick={logoutUser}
+                  sx={{ backgroundColor: "black", fontSize: "1rem" }}
+                  variant="contained"
+                >
+                  Logout
+                </Button>
+              )}
+
+              {!loggedInUser && (
+                <Button
+                  href="/register"
+                  sx={{ backgroundColor: "black", fontSize: "1rem" }}
+                  variant="contained"
+                  color="secondary"
+                >
+                  Register
+                </Button>
+              )}
+
+              {!loggedInUser && (
+                <Button
+                  href="/login"
+                  sx={{ backgroundColor: "black", fontSize: "1rem" }}
+                  variant="contained"
+                  color="secondary"
+                >
+                  LOGIN
+                </Button>
+              )}
             </ButtonGroup>
           </div>
         </div>
