@@ -26,12 +26,14 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
-        <div className="navbar-brand">TDL | NOTE APPLICATION</div>
+        <a style={{ textDecoration: "none" }} href="/">
+          <div className="navbar-brand">TDL | NOTE APPLICATION</div>
+        </a>
 
         <div className="navbar-nav">
           <ButtonGroup>
             <Button
-              href="/"
+              href="/create-note"
               sx={{ backgroundColor: "black", fontSize: "1rem" }}
               variant="contained"
               color="secondary"

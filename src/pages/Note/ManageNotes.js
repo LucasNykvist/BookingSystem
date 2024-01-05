@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../components/Navbar";
+import Navbar from "../../components/Navbar";
 import { Button, ButtonGroup } from "@mui/material";
-import { deleteNote, getAllNotes } from "../api/note.api";
+import { deleteNote, getAllNotes } from "../../api/note.api";
 
 const ManageNotes = () => {
   const [notes, setNotes] = useState();
