@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import { loginUser } from "../../../api/users.api";
+import { EMAIL_REGEX, LOGIN_DEFAULT_USER } from "../constants/user.constants";
 
 const useLogin = () => {
-  const defaultUser = {
-    email: "",
-    password: "",
-  };
-
+  const defaultUser = LOGIN_DEFAULT_USER;
   const [user, setUser] = useState(defaultUser);
   const [error, setError] = useState("");
 
@@ -22,7 +19,7 @@ const useLogin = () => {
     e.preventDefault();
 
     try {
-      const emailRegex = /\S+@\S+\.\S+/;
+      const emailRegex = EMAIL_REGEX;
 
       if (!emailRegex.test(user.email)) {
         setError("Invalid email");

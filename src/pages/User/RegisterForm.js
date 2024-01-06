@@ -2,55 +2,10 @@ import React, { useState } from "react";
 import { Button, TextField } from "@mui/material";
 import Navbar from "../../components/Navbar";
 import { loginUser, registerUser } from "../../api/users.api";
+import useRegister from "./hooks/useRegister";
 
 const RegisterForm = () => {
-  const defaultUser = {
-    email: "",
-    password: "",
-    repeatPassword: "",
-  };
-
-  const [user, setUser] = useState(defaultUser);
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setUser((prevUser) => ({
-      ...prevUser,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const emailRegex = /\S+@\S+\.\S+/;
-
-      if (!emailRegex.test(user.email)) {
-        setError("Invalid email");
-        return;
-      }
-
-      if (user.password !== user.repeatPassword) {
-        setError("Passwords do not match");
-        return;
-      }
-
-      const userToBeCreated = {
-        email: user.email,
-        password: user.password,
-      };
-
-      await registerUser(userToBeCreated);
-      setSuccess("User created successfully");
-      await loginUser(userToBeCreated);
-      setUser(defaultUser);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const { user, error, success, handleChange, handleSubmit } = useRegister();
 
   return (
     <>
