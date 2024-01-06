@@ -27,7 +27,7 @@ const Profile = () => {
               </h4>
               <p className="profile-info-text">{user.about}</p>
               <p className="profile-info-text">
-                Registration Date: {user.registeredAt}
+                Registration: {user.registeredAt}
               </p>
             </div>
 
@@ -49,7 +49,7 @@ const Profile = () => {
                 Edit
               </Button>
 
-              <Tooltip title="No Turning Back!" arrow>
+              {/* <Tooltip title="No Turning Back!" arrow>
                 <Button
                   sx={{
                     backgroundColor: "black",
@@ -59,8 +59,22 @@ const Profile = () => {
                 >
                   DELETE PROFILE
                 </Button>
-              </Tooltip>
+              </Tooltip> */}
             </div>
+          </div>
+        </div>
+      )}
+
+      {!user && (
+        <div className="no-profile-container">
+          <div className="no-profile">
+            <h1>This profile does not exist!</h1>
+            <img
+              style={{ width: "50%" }}
+              src="https://i.pinimg.com/originals/03/91/63/03916357a59f430fd2d07d121f7e8471.png"
+              alt=""
+              srcset=""
+            />
           </div>
         </div>
       )}
