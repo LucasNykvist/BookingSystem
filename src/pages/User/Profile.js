@@ -72,8 +72,6 @@ const Profile = () => {
             <img
               style={{ width: "50%" }}
               src="https://i.pinimg.com/originals/03/91/63/03916357a59f430fd2d07d121f7e8471.png"
-              alt=""
-              srcset=""
             />
           </div>
         </div>
