@@ -17,6 +17,7 @@ export const loginUser = async (user) => {
 
     localStorage.setItem("token", response.data.token);
     localStorage.setItem("user", JSON.stringify(response.data.email));
+    localStorage.setItem("id", response.data.id);
     window.location.href = "/";
     return response.data;
   } catch (error) {

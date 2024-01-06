@@ -25,7 +25,7 @@ function App() {
           <>
             <Route path="/create-note" element={<NoteForm />} />
             <Route path="/notes" element={<ManageNotes />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/profile/:id" element={<Profile />} />
           </>
         )}
 
