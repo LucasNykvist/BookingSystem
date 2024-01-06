@@ -1,18 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import { Button, Tooltip } from "@mui/material";
+import useUser from "./hooks/useUser";
 
 const Profile = () => {
-  const [loggedInUser, setLoggedInUser] = useState("");
-
-  const getLoggedInUser = () => {
-    const user = localStorage.getItem("user");
-    if (user) {
-      setLoggedInUser(user);
-      return user;
-    }
-    return null;
-  };
+  const { getLoggedInUser, loggedInUser } = useUser();
 
   useEffect(() => {
     getLoggedInUser();
