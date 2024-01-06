@@ -1,20 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import { Button, ButtonGroup } from "@mui/material";
-import { deleteNote, getAllNotes } from "../../api/note.api";
+import useManageNotes from "./hooks/useManageNotes";
 
 const ManageNotes = () => {
-  const [notes, setNotes] = useState();
-
-  const getNotes = async () => {
-    const res = await getAllNotes();
-    setNotes(res);
-  };
-
-  const removeNote = async (id) => {
-    await deleteNote(id);
-    getNotes();
-  };
+  const { notes, getNotes, removeNote } = useManageNotes();
 
   useEffect(() => {
     getNotes();
