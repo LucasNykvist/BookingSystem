@@ -31,24 +31,26 @@ const Navbar = () => {
         </a>
 
         <div className="navbar-nav">
-          <ButtonGroup>
-            <Button
-              href="/create-note"
-              sx={{ backgroundColor: "black", fontSize: "1rem" }}
-              variant="contained"
-              color="secondary"
-            >
-              Create Note
-            </Button>
-            <Button
-              href="/notes"
-              sx={{ backgroundColor: "black", fontSize: "1rem" }}
-              variant="contained"
-              color="secondary"
-            >
-              Manage Notes
-            </Button>
-          </ButtonGroup>
+          {loggedInUser && (
+            <ButtonGroup>
+              <Button
+                href="/create-note"
+                sx={{ backgroundColor: "black", fontSize: "1rem" }}
+                variant="contained"
+                color="secondary"
+              >
+                Create Note
+              </Button>
+              <Button
+                href="/notes"
+                sx={{ backgroundColor: "black", fontSize: "1rem" }}
+                variant="contained"
+                color="secondary"
+              >
+                Manage Notes
+              </Button>
+            </ButtonGroup>
+          )}
 
           <ButtonGroup>
             {loggedInUser && (
