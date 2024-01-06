@@ -3,12 +3,22 @@ import { Button, ButtonGroup } from "@mui/material";
 
 const Navbar = () => {
   const [loggedInUser, setLoggedInUser] = useState("");
+  const [loggedInUserId, setLoggedInUserId] = useState("");
 
   const getLoggedInUser = () => {
     const user = localStorage.getItem("user");
     if (user) {
       setLoggedInUser(user);
       return user;
+    }
+    return null;
+  };
+
+  const getLoggedInUserId = () => {
+    const userId = localStorage.getItem("id");
+    if (userId) {
+      setLoggedInUserId(userId);
+      return userId;
     }
     return null;
   };
@@ -21,6 +31,7 @@ const Navbar = () => {
 
   useEffect(() => {
     getLoggedInUser();
+    getLoggedInUserId();
   }, []);
 
   return (
@@ -55,7 +66,7 @@ const Navbar = () => {
           <ButtonGroup>
             {loggedInUser && (
               <Button
-                href="/profile"
+                href={"/profile/" + loggedInUserId}
                 sx={{ backgroundColor: "black", fontSize: "1rem" }}
                 variant="contained"
               >
