@@ -23,3 +23,12 @@ export const loginUser = async (user) => {
     console.error(error);
   }
 };
+
+export const getUserById = async (id) => {
+  try {
+    const response = await axios.get(`http://localhost:5000/api/users/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
