@@ -4,10 +4,26 @@ import { Button, TextField, Tooltip } from "@mui/material";
 import useUser from "./hooks/useUser";
 import { useParams } from "react-router-dom";
 import { updateUser } from "../../api/users.api";
+import Dropzone from "react-dropzone-uploader";
+import "react-dropzone-uploader/dist/styles.css";
 
 const Profile = () => {
   const { getUser, user } = useUser();
   const { id } = useParams();
+
+  // WTF saker -> till uppladdning av bilder
+  const getUploadParams = ({ meta }) => {
+    return { url: "https://httpbin.org/post" };
+  };
+
+  const handleChangeStatus = ({ meta, file }, status) => {
+    console.log(status, meta, file);
+  };
+
+  const handleFileSubmit = (files, allFiles) => {
+    console.log(files.map((f) => f.meta));
+    allFiles.forEach((f) => f.remove());
+  };
 
   const [editMode, setEditMode] = useState(false);
   const [userAbout, setUserAbout] = useState({
@@ -43,9 +59,11 @@ const Profile = () => {
               <h1>{user.email}</h1>
 
               <div className="profile-information">
+                {/* About */}
                 <h4 style={{ color: "black", fontWeight: "bold" }}>
                   User Information:{" "}
                 </h4>
+
                 <TextField
                   sx={{ marginTop: "1rem", marginBottom: "1rem" }}
                   label="Edit User Information"
@@ -56,9 +74,27 @@ const Profile = () => {
                   variant="outlined"
                   multiline
                 />
-                <p className="profile-info-text">
-                  Registration: {user.registeredAt}
-                </p>
+
+                {/* Profile image */}
+                <h4 style={{ color: "black", fontWeight: "bold" }}>
+                  Profile Image:{" "}
+                </h4>
+
+                <Dropzone
+                  styles={{
+                    dropzone: {
+                      minHeight: 100,
+                      maxHeight: 100,
+                      border: "1px solid black",
+                      borderRadius: "5px",
+                      margin: "1rem 0rem",
+                    },
+                  }}
+                  getUploadParams={getUploadParams}
+                  onChangeStatus={handleChangeStatus}
+                  onSubmit={handleFileSubmit}
+                  accept="image/*"
+                />
               </div>
 
               <div className="buttons">
