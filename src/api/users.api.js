@@ -25,6 +25,18 @@ export const loginUser = async (user) => {
   }
 };
 
+export const updateUser = async (user) => {
+  try {
+    const response = await axios.put(
+      `http://localhost:5000/api/users/${user.id}`,
+      user
+    );
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const getUserById = async (id) => {
   try {
     const response = await axios.get(`http://localhost:5000/api/users/${id}`);
