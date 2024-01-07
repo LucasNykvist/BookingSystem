@@ -292,6 +292,7 @@ nav .container-fluid .navbar-nav .link .item-2 {
   display: flex;
   flex-direction: row;
 }
+
 .no-profile-container {
   display: flex;
   justify-content: center;
