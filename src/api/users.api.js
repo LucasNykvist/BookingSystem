@@ -25,10 +25,10 @@ export const loginUser = async (user) => {
   }
 };
 
-export const updateUser = async (user) => {
+export const updateUser = async (user, id) => {
   try {
     const response = await axios.put(
-      `http://localhost:5000/api/users/${user.id}`,
+      `http://localhost:5000/api/users/${id}`,
       user
     );
     return response.data;

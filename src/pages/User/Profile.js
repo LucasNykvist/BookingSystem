@@ -3,6 +3,7 @@ import Navbar from "../../components/Navbar";
 import { Button, TextField, Tooltip } from "@mui/material";
 import useUser from "./hooks/useUser";
 import { useParams } from "react-router-dom";
+import { updateUser } from "../../api/users.api";
 
 const Profile = () => {
   const { getUser, user } = useUser();
@@ -12,6 +13,16 @@ const Profile = () => {
   const [userAbout, setUserAbout] = useState({
     about: user.about,
   });
+
+  const onChange = (e) => {
+    setUserAbout({ ...userAbout, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await updateUser(userAbout, id);
+    setEditMode(false);
+  };
 
   useEffect(() => {
     getUser(id);
@@ -37,6 +48,7 @@ const Profile = () => {
                 <TextField
                   sx={{ marginTop: "1rem", marginBottom: "1rem" }}
                   label="Edit User Information"
+                  onChange={onChange}
                   placeholder={user.about}
                   name="about"
                   value={userAbout.about}
@@ -51,10 +63,21 @@ const Profile = () => {
                 style={{
                   display: "flex",
                   width: "100%",
-                  justifyContent: "space-between",
+                  gap: "0.5rem",
                 }}
                 className="buttons"
               >
+                <Button
+                  disabled={!userAbout.about}
+                  onClick={handleSubmit}
+                  sx={{
+                    backgroundColor: "black",
+                    ":hover": { backgroundColor: "white", color: "black" },
+                  }}
+                  variant="contained"
+                >
+                  Accept Changes
+                </Button>
                 <Button
                   onClick={() => setEditMode(false)}
                   sx={{
@@ -115,18 +138,6 @@ const Profile = () => {
                 >
                   Edit
                 </Button>
-
-                {/* <Tooltip title="No Turning Back!" arrow>
-                <Button
-                  sx={{
-                    backgroundColor: "black",
-                    ":hover": { backgroundColor: "red", color: "white" },
-                  }}
-                  variant="contained"
-                >
-                  DELETE PROFILE
-                </Button>
-              </Tooltip> */}
               </div>
             </div>
           )}
