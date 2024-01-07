@@ -46,6 +46,12 @@
       width: 100%;
       flex-direction: column;
     }
+
+    .buttons {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+    }
   }
 }
 
