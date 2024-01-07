@@ -5,19 +5,32 @@ import useUser from "./hooks/useUser";
 import { useParams } from "react-router-dom";
 import { updateUser } from "../../api/users.api";
 import Dropzone from "react-dropzone-uploader";
-import "react-dropzone-uploader/dist/styles.css";
 
 const Profile = () => {
   const { getUser, user } = useUser();
   const { id } = useParams();
+
+  const [imageFile, setImageFile] = useState({});
 
   // WTF saker -> till uppladdning av bilder
   const getUploadParams = ({ meta }) => {
     return { url: "https://httpbin.org/post" };
   };
 
+  const [fileStatus, setFileStatus] = useState(
+    "Drop profile image file here or click to upload"
+  );
+
   const handleChangeStatus = ({ meta, file }, status) => {
-    console.log(status, meta, file);
+    if (status === "rejected_max_files") {
+      setFileStatus("You can only upload one file!");
+    }
+
+    if (status === "done") {
+      setFileStatus("File uploaded!");
+    }
+
+    setImageFile(file);
   };
 
   const handleFileSubmit = (files, allFiles) => {
@@ -37,6 +50,7 @@ const Profile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await updateUser(userAbout, id);
+    handleFileSubmit(imageFile);
     getUser(id);
     setEditMode(false);
   };
@@ -82,18 +96,34 @@ const Profile = () => {
 
                 <Dropzone
                   styles={{
-                    dropzone: {
+                    input: {
+                      display: "none",
+                    },
+                    submitButton: {
+                      display: "none",
+                    },
+                    previewImage: {
+                      width: "150px",
+                      height: "150px",
+                      objectFit: "cover",
+                    },
+                    inputLabel: {
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      width: "100%",
                       minHeight: 100,
                       maxHeight: 100,
-                      border: "1px solid black",
+                      border: "1px solid rgba(0, 0, 0, 0.381)",
                       borderRadius: "5px",
                       margin: "1rem 0rem",
                     },
                   }}
                   getUploadParams={getUploadParams}
                   onChangeStatus={handleChangeStatus}
-                  onSubmit={handleFileSubmit}
+                  maxFiles={1}
                   accept="image/*"
+                  inputContent={fileStatus}
                 />
               </div>
 
