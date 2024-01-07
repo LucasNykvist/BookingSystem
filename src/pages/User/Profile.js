@@ -21,6 +21,7 @@ const Profile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await updateUser(userAbout, id);
+    getUser(id);
     setEditMode(false);
   };
 
@@ -53,6 +54,7 @@ const Profile = () => {
                   name="about"
                   value={userAbout.about}
                   variant="outlined"
+                  multiline
                 />
                 <p className="profile-info-text">
                   Registration: {user.registeredAt}
@@ -68,7 +70,6 @@ const Profile = () => {
                 className="buttons"
               >
                 <Button
-                  disabled={!userAbout.about}
                   onClick={handleSubmit}
                   sx={{
                     backgroundColor: "black",
@@ -89,17 +90,20 @@ const Profile = () => {
                   Cancel
                 </Button>
 
-                {/* <Tooltip title="No Turning Back!" arrow>
-                <Button
-                  sx={{
-                    backgroundColor: "black",
-                    ":hover": { backgroundColor: "red", color: "white" },
-                  }}
-                  variant="contained"
-                >
-                  DELETE PROFILE
-                </Button>
-              </Tooltip> */}
+                <Tooltip title="No Turning Back!" arrow>
+                  <Button
+                    sx={{
+                      backgroundColor: "black",
+                      ":hover": {
+                        backgroundColor: "red",
+                        color: "white",
+                      },
+                    }}
+                    variant="contained"
+                  >
+                    DELETE PROFILE
+                  </Button>
+                </Tooltip>
               </div>
             </div>
           )}
