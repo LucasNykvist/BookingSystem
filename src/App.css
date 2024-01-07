@@ -287,7 +287,11 @@ nav .container-fluid .navbar-nav .link .item-2 {
   width: 100%;
   flex-direction: column;
 }
-
+.profile-container .profile-content .buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
 .no-profile-container {
   display: flex;
   justify-content: center;

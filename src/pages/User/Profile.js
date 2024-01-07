@@ -61,49 +61,53 @@ const Profile = () => {
                 </p>
               </div>
 
-              <div
-                style={{
-                  display: "flex",
-                  width: "100%",
-                  gap: "0.5rem",
-                }}
-                className="buttons"
-              >
-                <Button
-                  onClick={handleSubmit}
-                  sx={{
-                    backgroundColor: "black",
-                    ":hover": { backgroundColor: "white", color: "black" },
+              <div className="buttons">
+                <div
+                  style={{
+                    display: "flex",
+                    width: "100%",
+                    gap: "0.5rem",
                   }}
-                  variant="contained"
+                  className="buttons-left"
                 >
-                  Accept Changes
-                </Button>
-                <Button
-                  onClick={() => setEditMode(false)}
-                  sx={{
-                    backgroundColor: "black",
-                    ":hover": { backgroundColor: "white", color: "black" },
-                  }}
-                  variant="contained"
-                >
-                  Cancel
-                </Button>
-
-                <Tooltip title="No Turning Back!" arrow>
                   <Button
+                    onClick={handleSubmit}
                     sx={{
                       backgroundColor: "black",
-                      ":hover": {
-                        backgroundColor: "red",
-                        color: "white",
-                      },
+                      ":hover": { backgroundColor: "white", color: "black" },
                     }}
                     variant="contained"
                   >
-                    DELETE PROFILE
+                    Accept Changes
                   </Button>
-                </Tooltip>
+                  <Button
+                    onClick={() => setEditMode(false)}
+                    sx={{
+                      backgroundColor: "black",
+                      ":hover": { backgroundColor: "white", color: "black" },
+                    }}
+                    variant="contained"
+                  >
+                    Cancel
+                  </Button>
+                </div>
+
+                <div className="buttons-right">
+                  <Tooltip title="Delete Profile" arrow>
+                    <Button
+                      sx={{
+                        backgroundColor: "black",
+                        ":hover": {
+                          backgroundColor: "red",
+                          color: "white",
+                        },
+                      }}
+                      variant="contained"
+                    >
+                      DELETE
+                    </Button>
+                  </Tooltip>
+                </div>
               </div>
             </div>
           )}
