@@ -37,6 +37,27 @@ export const updateUser = async (user, id) => {
   }
 };
 
+export const updateUser2 = async (file, user, id) => {
+  const formData = new FormData();
+
+  formData.append("file", file);
+  formData.append("user", JSON.stringify(user));
+
+  console.log(formData);
+
+  const res = await axios.put(
+    `http://localhost:5000/api/users/${id}`,
+    formData,
+    {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    }
+  );
+
+  return res.data;
+};
+
 export const getUserById = async (id) => {
   try {
     const response = await axios.get(`http://localhost:5000/api/users/${id}`);

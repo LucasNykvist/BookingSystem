@@ -3,7 +3,7 @@ import Navbar from "../../components/Navbar";
 import { Button, TextField, Tooltip } from "@mui/material";
 import useUser from "./hooks/useUser";
 import { useParams } from "react-router-dom";
-import { updateUser } from "../../api/users.api";
+import { updateUser, updateUser2 } from "../../api/users.api";
 import Dropzone from "react-dropzone-uploader";
 
 const Profile = () => {
@@ -14,7 +14,14 @@ const Profile = () => {
 
   // WTF saker -> till uppladdning av bilder
   const getUploadParams = ({ meta }) => {
-    return { url: "https://httpbin.org/post" };
+    return {
+      url: `http://localhost:5000/api/users/${id}`,
+      method: "POST",
+      body: imageFile,
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    };
   };
 
   const [fileStatus, setFileStatus] = useState(
@@ -33,11 +40,6 @@ const Profile = () => {
     setImageFile(file);
   };
 
-  const handleFileSubmit = (files, allFiles) => {
-    console.log(files.map((f) => f.meta));
-    allFiles.forEach((f) => f.remove());
-  };
-
   const [editMode, setEditMode] = useState(false);
   const [userAbout, setUserAbout] = useState({
     about: user.about,
@@ -49,8 +51,7 @@ const Profile = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await updateUser(userAbout, id);
-    handleFileSubmit(imageFile);
+    await updateUser2(imageFile, userAbout, id);
     getUser(id);
     setEditMode(false);
   };
