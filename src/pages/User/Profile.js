@@ -5,6 +5,8 @@ import useUser from "./hooks/useUser";
 import { useParams } from "react-router-dom";
 import { updateUser, updateUser2 } from "../../api/users.api";
 import Dropzone from "react-dropzone-uploader";
+const img =
+  "C:\\Users\\lukep\\Desktop\\code\\React-Booking\\bookingsystem-backend\\uploads";
 
 const Profile = () => {
   const { getUser, user } = useUser();
@@ -182,7 +184,9 @@ const Profile = () => {
           {/* EDIT MODE OFF */}
           {!editMode && (
             <div className="profile-content">
-              <div className="profile-image"></div>
+              <div className="profile-image">
+                <img src={img} alt="" srcset="" />
+              </div>
               <h1>{user.email}</h1>
 
               <div className="profile-information">
