@@ -10,6 +10,7 @@ import HomePage from "./pages/Home/HomePage";
 import NoteForm from "./pages/Note/NoteForm";
 import useUser from "./pages/User/hooks/useUser";
 import NotAllowed from "./pages/NotAllowed/NotAllowed";
+import { AuthProvider } from "./contexts/useAuth";
 
 function App() {
   const { getLoggedInUser, loggedInUser } = useUser();
@@ -19,24 +20,26 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter>
-      <Routes>
-        {loggedInUser && (
-          <>
-            <Route path="/create-note" element={<NoteForm />} />
-            <Route path="/notes" element={<ManageNotes />} />
-            <Route path="/profile/:id" element={<Profile />} />
-          </>
-        )}
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          {loggedInUser && (
+            <>
+              <Route path="/create-note" element={<NoteForm />} />
+              <Route path="/notes" element={<ManageNotes />} />
+              <Route path="/profile/:id" element={<Profile />} />
+            </>
+          )}
 
-        <Route path="/" element={<HomePage />} />
-        <Route path="/register" element={<RegisterForm />} />
-        <Route path="login" element={<LoginForm />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/register" element={<RegisterForm />} />
+          <Route path="login" element={<LoginForm />} />
 
-        {loggedInUser && <Route path="*" element={<NotFound />} />}
-        {!loggedInUser && <Route path="*" element={<NotAllowed />} />}
-      </Routes>
-    </BrowserRouter>
+          {loggedInUser && <Route path="*" element={<NotFound />} />}
+          {!loggedInUser && <Route path="*" element={<NotAllowed />} />}
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 
