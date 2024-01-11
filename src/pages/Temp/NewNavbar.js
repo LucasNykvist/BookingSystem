@@ -5,6 +5,7 @@ import {
   Icon,
   IconButton,
   Menu,
+  MenuItem,
   Toolbar,
   Typography,
 } from "@mui/material";
@@ -14,7 +15,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 const NewNavbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
-  const pages = ["Home", "About", "Contact", "Login", "Register"];
+  const pages = ["Home", "Notes", "Login", "Register"];
 
   const handleOpenNavMenu = (e) => {
     setAnchorElNav(e.currentTarget);
@@ -57,7 +58,13 @@ const NewNavbar = () => {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{ display: { xs: "block", md: "none" } }}
-            ></Menu>
+            >
+              {pages.map((page) => (
+                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{page}</Typography>
+                </MenuItem>
+              ))}
+            </Menu>
           </Box>
         </Toolbar>
       </Container>
