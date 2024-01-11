@@ -11,6 +11,7 @@ import NoteForm from "./pages/Note/NoteForm";
 import useUser from "./pages/User/hooks/useUser";
 import NotAllowed from "./pages/NotAllowed/NotAllowed";
 import { AuthProvider } from "./contexts/useAuth";
+import TempPage from "./pages/Temp/TempPage";
 
 function App() {
   const { getLoggedInUser, loggedInUser } = useUser();
@@ -31,6 +32,7 @@ function App() {
             </>
           )}
 
+          <Route path="/temp" element={<TempPage />} />
           <Route path="/" element={<HomePage />} />
           <Route path="/register" element={<RegisterForm />} />
           <Route path="login" element={<LoginForm />} />
