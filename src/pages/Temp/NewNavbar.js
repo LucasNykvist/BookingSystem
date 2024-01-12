@@ -1,6 +1,7 @@
 import {
   AppBar,
   Box,
+  Button,
   Container,
   Icon,
   IconButton,
@@ -87,7 +88,20 @@ const NewNavbar = () => {
             TDL
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}></Box>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+            {pages.map((page) => (
+              <Button
+                sx={{
+                  color: "inherit",
+                  display: "block",
+                  my: 2,
+                }}
+                key={page}
+              >
+                {page}
+              </Button>
+            ))}
+          </Box>
         </Toolbar>
       </Container>
     </AppBar>
