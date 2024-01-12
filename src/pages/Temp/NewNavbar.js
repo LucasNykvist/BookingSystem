@@ -1,6 +1,7 @@
 import {
   AppBar,
   Box,
+  Button,
   Container,
   Icon,
   IconButton,
@@ -29,7 +30,7 @@ const NewNavbar = () => {
     <AppBar position="static">
       <Container maxWidth="x1">
         <Toolbar disableGutters>
-          <Typography className="logo" variant="h6" noWrap>
+          <Typography className="logo" variant="h6" noWrap component="a">
             TDL
           </Typography>
 
@@ -65,6 +66,41 @@ const NewNavbar = () => {
                 </MenuItem>
               ))}
             </Menu>
+          </Box>
+
+          <Typography
+            className="logo"
+            variant="h5"
+            noWrap
+            component="a"
+            sx={{
+              mr: 2,
+              display: {
+                xs: "flex",
+                md: "block",
+              },
+              flexGrow: 1,
+              fontFamily: "Anton",
+              color: "inherit",
+              textDecoration: "none",
+            }}
+          >
+            TDL
+          </Typography>
+
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+            {pages.map((page) => (
+              <Button
+                sx={{
+                  color: "inherit",
+                  display: "block",
+                  my: 2,
+                }}
+                key={page}
+              >
+                {page}
+              </Button>
+            ))}
           </Box>
         </Toolbar>
       </Container>
