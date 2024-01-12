@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import React from "react";
 import MenuIcon from "@mui/icons-material/Menu";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const NewNavbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -25,6 +26,8 @@ const NewNavbar = () => {
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
+
+  const navigate = useNavigate();
 
   return (
     <AppBar position="static">
@@ -91,6 +94,7 @@ const NewNavbar = () => {
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
+                onClick={() => navigate(`/${page.toLowerCase()}`)}
                 sx={{
                   color: "inherit",
                   display: "block",

@@ -33,7 +33,7 @@ function App() {
           )}
 
           <Route path="/temp" element={<TempPage />} />
-          <Route path="/" element={<HomePage />} />
+          <Route path={"/" && "/home"} element={<HomePage />} />
           <Route path="/register" element={<RegisterForm />} />
           <Route path="login" element={<LoginForm />} />
 
