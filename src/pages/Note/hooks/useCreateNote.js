@@ -6,6 +6,8 @@ const useCreateNote = () => {
   const defaultInputFields = DEFAULT_NOTE_INPUT_FIELDS;
   const [inputFields, setInputFields] = useState(defaultInputFields);
   const [success, setSuccess] = useState(false);
+  const [showAss, setShowAss] = useState(false);
+  const [assText, setAssText] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,12 +23,22 @@ const useCreateNote = () => {
       await createNote(inputFields);
       setInputFields(defaultInputFields);
       setSuccess(true);
+      setShowAss(true);
+      setAssText("Fin vovve");
     } catch (error) {
       console.log(error);
     }
   };
 
-  return { inputFields, success, handleChange, handleSubmit, setSuccess };
+  return {
+    inputFields,
+    success,
+    handleChange,
+    handleSubmit,
+    setSuccess,
+    showAss,
+    assText,
+  };
 };
 
 export default useCreateNote;
